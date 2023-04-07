@@ -75,4 +75,5 @@ const IndexPage = () => {
 
 export const Head = () => <Seo title='Home' />
 
+IndexPage.Layout= Layout
 export default IndexPage

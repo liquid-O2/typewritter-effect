@@ -18,5 +18,5 @@ const NewPage = () => {
 }
 
 export const Head = () => <Seo title='New' />
-
+NewPage.Layout = Layout
 export default NewPage
