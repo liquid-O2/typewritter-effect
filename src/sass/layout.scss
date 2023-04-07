@@ -51,6 +51,7 @@ header {
   backdrop-filter: blur(6222px);
   position: fixed;
   display: flex;
+  min-height: 56px;
   justify-content: space-between;
   align-items: center;
   min-width: fit-content;
