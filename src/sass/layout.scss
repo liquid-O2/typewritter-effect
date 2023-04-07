@@ -1,0 +1,44 @@
+/*--------------------------------------------------------------
+## Layout Styling
+--------------------------------------------------------------*/
+
+h1 {
+  font-weight: 600;
+  font-size: 5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+article {
+  height: 400px;
+  border-bottom: 1px solid #80808040;
+}
+
+body {
+  background-color: #f5f5f5;
+  padding: 3rem;
+}
+
+.card-wrapper {
+  margin-top: 3rem;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: space-between;
+  figure {
+    max-width: 30vw;
+    position: relative;
+    &:first-child {
+      max-width: 40vw;
+    }
+    img {
+      object-fit: cover;
+    }
+  }
+  p {
+    display: block;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    width: fit-content;
+    white-space: nowrap;
+  }
+}
