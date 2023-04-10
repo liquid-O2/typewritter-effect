@@ -53,7 +53,6 @@ const IndexPage = () => {
       })
       element.addEventListener("mouseleave", () => {
         const caption = element.querySelector(".typewriter-caption")
-        if (!caption) return
         caption.classList.remove("start")
         caption.classList.add("end")
       })

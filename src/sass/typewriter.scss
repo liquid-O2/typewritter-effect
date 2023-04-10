@@ -29,23 +29,22 @@
     opacity: 1;
   }
 }
-.typewriter-wrapper{
+.typewriter-wrapper {
   display: flex;
   align-items: center;
   letter-spacing: 0.1em;
 }
-.typewriter-caption{
+
+.typewriter-caption {
   margin-left: 0.5em;
   display: inline;
   color: #818181;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease !important;
   &.start {
     opacity: 1;
-    transition: opacity 0.5s ease;
   }
   &.end {
     opacity: 0;
-    transition: opacity 0.5s ease;
   }
 }
