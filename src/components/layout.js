@@ -1,5 +1,4 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { navigate } from "gatsby"
 import { useLocation } from "@reach/router"
 import "../sass/site.scss"
@@ -10,7 +9,6 @@ const Layout = ({ children }) => {
 
   React.useEffect(() => {
     const curtain = document.querySelector(".curtain")
-
     curtain.classList.add("fade-in")
     const links = document.querySelectorAll("a")
     links.forEach(link => {
