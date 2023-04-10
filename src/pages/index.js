@@ -5,23 +5,9 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const IndexPage = () => {
-  // -- Using just CSS
-  // useEffect(() => {
-  //   const elements = document.querySelectorAll(".marker")
-  //   elements.forEach(element => {
-  //     element.addEventListener("sal:in", ({ detail }) => {
-  //       detail.target.classList.add("typewriter")
-  //       detail.target.classList.add("typewriter-start")
-  //     })
-  //     element.addEventListener("sal:out", ({ detail }) => {
-  //       detail.target.classList.remove("typewriter")
-  //       detail.target.classList.remove("typewriter-start")
-  //     })
-  //   })
-  // }, [])
-
   // -- Using JS
   useEffect(() => {
+    // -- Typewriter effect for onView event.
     const elements = document.querySelectorAll(".marker")
     elements.forEach(element => {
       element.addEventListener("sal:in", ({ detail }) => {
@@ -44,6 +30,34 @@ const IndexPage = () => {
         detail.target.classList.add("end")
       })
     })
+
+    // -- Typewriter effect for onHover event
+    const parentElements = document.querySelectorAll(".typewriter-parent")
+    parentElements.forEach(element => {
+      element.addEventListener("mouseenter", () => {
+        const caption = element.querySelector(".typewriter-caption")
+        if (!caption) return
+        const text = caption.innerHTML
+        caption.innerHTML = ""
+        let index = 0
+        caption.classList.remove("end")
+        caption.classList.add("start")
+        function typeWriter() {
+          if (index < text.length) {
+            caption.innerHTML += text.charAt(index)
+            index++
+            setTimeout(typeWriter, 50)
+          }
+        }
+        typeWriter()
+      })
+      element.addEventListener("mouseleave", () => {
+        const caption = element.querySelector(".typewriter-caption")
+        if (!caption) return
+        caption.classList.remove("start")
+        caption.classList.add("end")
+      })
+    })
   }, [])
 
   return (
@@ -52,20 +66,22 @@ const IndexPage = () => {
         <h1>Typewriter Demo</h1>
       </article>
       <section className='card-wrapper'>
-        <figure>
+        <figure className='typewriter-parent'>
           <StaticImage src='../images/imageOne.jpg' alt='Image One' quality={80} placeholder='blurred' />
           <figcaption className='typewriter-wrapper'>
             <p className='typewriter marker' data-sal>
-              Casa Blanca
+              CASA BLANCA
             </p>
+            <p className='typewriter-caption'>TIMELESS ELEGANCE AWAITS</p>
           </figcaption>
         </figure>
-        <figure>
+        <figure className='typewriter-parent'>
           <StaticImage src='../images/imageTwo.jpg' alt='Image Two' quality={80} placeholder='blurred' />
           <figcaption className='typewriter-wrapper'>
             <p className='typewriter marker' data-sal>
-              Scandanavian Delight
+              SCANDANAVIAN DELIGHT
             </p>
+            <p className='typewriter-caption'>YOUR NORDIC RETREAT</p>
           </figcaption>
         </figure>
       </section>
@@ -75,5 +91,5 @@ const IndexPage = () => {
 
 export const Head = () => <Seo title='Home' />
 
-IndexPage.Layout= Layout
+IndexPage.Layout = Layout
 export default IndexPage

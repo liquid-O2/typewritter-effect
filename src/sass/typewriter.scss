@@ -1,46 +1,18 @@
 /*--------------------------------------------------------------
-## Typewriter Styling (Using CSS)
---------------------------------------------------------------*/
-// .typewriter {
-//   overflow: hidden;
-//   width: 0%;
-//   white-space: nowrap;
-//   animation: typing 4s steps(100, end);
-//   animation-play-state: paused;
-//   &.typewriter-start {
-//     animation-play-state: running;
-//   }
-// }
-// .typewriter-wrapper {
-//   display: flex;
-//   width: auto;
-// }
-
-// @keyframes typing {
-//   from {
-//     width: 0%;
-//   }
-//   to {
-//     width: 100%;
-//   }
-// }
-
-
-/*--------------------------------------------------------------
 ## Typewriter Styling (Using JS)
 --------------------------------------------------------------*/
 
 .typewriter {
   overflow: hidden;
   white-space: nowrap;
-  &.start{
+  &.start {
     opacity: 1;
   }
-  &.end{
+  &.end {
     opacity: 0;
   }
 
-  &::after{
+  &::after {
     content: "_";
     display: inline-block;
     animation: cursor-blink 0.7s infinite alternate;
@@ -48,15 +20,27 @@
   }
 }
 
-
 @keyframes cursor-blink {
   0% {
     opacity: 0;
   }
-  50% {
+  100% {
     opacity: 1;
   }
-  100% {
+}
+.typewriter-wrapper{
+  display: flex;
+  align-items: center;
+}
+.typewriter-caption{
+  margin-left: 1em;
+  display: inline;
+  color: #818181;
+  opacity: 0;
+  &.start {
+    opacity: 1;
+  }
+  &.end {
     opacity: 0;
   }
 }
